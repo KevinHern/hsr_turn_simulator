@@ -18,10 +18,6 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$BuffStatusModel {
   int get statusId => throw _privateConstructorUsedError;
   set statusId(int value) => throw _privateConstructorUsedError;
-  StatusModifierType get statusModifierType =>
-      throw _privateConstructorUsedError;
-  set statusModifierType(StatusModifierType value) =>
-      throw _privateConstructorUsedError;
   Stat get stat => throw _privateConstructorUsedError;
   set stat(Stat value) => throw _privateConstructorUsedError;
   int get activeCharacterTurns => throw _privateConstructorUsedError;
@@ -47,7 +43,6 @@ abstract class $BuffStatusModelCopyWith<$Res> {
   @useResult
   $Res call(
       {int statusId,
-      StatusModifierType statusModifierType,
       Stat stat,
       int activeCharacterTurns,
       double? multiplicativeBonus,
@@ -69,7 +64,6 @@ class _$BuffStatusModelCopyWithImpl<$Res, $Val extends BuffStatusModel>
   @override
   $Res call({
     Object? statusId = null,
-    Object? statusModifierType = null,
     Object? stat = null,
     Object? activeCharacterTurns = null,
     Object? multiplicativeBonus = freezed,
@@ -81,10 +75,6 @@ class _$BuffStatusModelCopyWithImpl<$Res, $Val extends BuffStatusModel>
           ? _value.statusId
           : statusId // ignore: cast_nullable_to_non_nullable
               as int,
-      statusModifierType: null == statusModifierType
-          ? _value.statusModifierType
-          : statusModifierType // ignore: cast_nullable_to_non_nullable
-              as StatusModifierType,
       stat: null == stat
           ? _value.stat
           : stat // ignore: cast_nullable_to_non_nullable
@@ -119,7 +109,6 @@ abstract class _$$BuffStatusModelImplCopyWith<$Res>
   @useResult
   $Res call(
       {int statusId,
-      StatusModifierType statusModifierType,
       Stat stat,
       int activeCharacterTurns,
       double? multiplicativeBonus,
@@ -139,7 +128,6 @@ class __$$BuffStatusModelImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? statusId = null,
-    Object? statusModifierType = null,
     Object? stat = null,
     Object? activeCharacterTurns = null,
     Object? multiplicativeBonus = freezed,
@@ -151,10 +139,6 @@ class __$$BuffStatusModelImplCopyWithImpl<$Res>
           ? _value.statusId
           : statusId // ignore: cast_nullable_to_non_nullable
               as int,
-      statusModifierType: null == statusModifierType
-          ? _value.statusModifierType
-          : statusModifierType // ignore: cast_nullable_to_non_nullable
-              as StatusModifierType,
       stat: null == stat
           ? _value.stat
           : stat // ignore: cast_nullable_to_non_nullable
@@ -184,7 +168,6 @@ class __$$BuffStatusModelImplCopyWithImpl<$Res>
 class _$BuffStatusModelImpl extends _BuffStatusModel {
   _$BuffStatusModelImpl(
       {required this.statusId,
-      required this.statusModifierType,
       required this.stat,
       required this.activeCharacterTurns,
       this.multiplicativeBonus,
@@ -194,8 +177,6 @@ class _$BuffStatusModelImpl extends _BuffStatusModel {
 
   @override
   int statusId;
-  @override
-  StatusModifierType statusModifierType;
   @override
   Stat stat;
   @override
@@ -218,7 +199,6 @@ class _$BuffStatusModelImpl extends _BuffStatusModel {
 abstract class _BuffStatusModel extends BuffStatusModel {
   factory _BuffStatusModel(
       {required int statusId,
-      required StatusModifierType statusModifierType,
       required Stat stat,
       required int activeCharacterTurns,
       double? multiplicativeBonus,
@@ -229,9 +209,6 @@ abstract class _BuffStatusModel extends BuffStatusModel {
   @override
   int get statusId;
   set statusId(int value);
-  @override
-  StatusModifierType get statusModifierType;
-  set statusModifierType(StatusModifierType value);
   @override
   Stat get stat;
   set stat(Stat value);
@@ -257,10 +234,6 @@ abstract class _BuffStatusModel extends BuffStatusModel {
 mixin _$DebuffStatusModel {
   int get statusId => throw _privateConstructorUsedError;
   set statusId(int value) => throw _privateConstructorUsedError;
-  StatusModifierType get statusModifierType =>
-      throw _privateConstructorUsedError;
-  set statusModifierType(StatusModifierType value) =>
-      throw _privateConstructorUsedError;
   Stat get stat => throw _privateConstructorUsedError;
   set stat(Stat value) => throw _privateConstructorUsedError;
   int get activeCharacterTurns => throw _privateConstructorUsedError;
@@ -286,7 +259,6 @@ abstract class $DebuffStatusModelCopyWith<$Res> {
   @useResult
   $Res call(
       {int statusId,
-      StatusModifierType statusModifierType,
       Stat stat,
       int activeCharacterTurns,
       double? multiplicativeBonus,
@@ -308,7 +280,6 @@ class _$DebuffStatusModelCopyWithImpl<$Res, $Val extends DebuffStatusModel>
   @override
   $Res call({
     Object? statusId = null,
-    Object? statusModifierType = null,
     Object? stat = null,
     Object? activeCharacterTurns = null,
     Object? multiplicativeBonus = freezed,
@@ -320,10 +291,6 @@ class _$DebuffStatusModelCopyWithImpl<$Res, $Val extends DebuffStatusModel>
           ? _value.statusId
           : statusId // ignore: cast_nullable_to_non_nullable
               as int,
-      statusModifierType: null == statusModifierType
-          ? _value.statusModifierType
-          : statusModifierType // ignore: cast_nullable_to_non_nullable
-              as StatusModifierType,
       stat: null == stat
           ? _value.stat
           : stat // ignore: cast_nullable_to_non_nullable
@@ -358,7 +325,6 @@ abstract class _$$DebuffStatusModelImplCopyWith<$Res>
   @useResult
   $Res call(
       {int statusId,
-      StatusModifierType statusModifierType,
       Stat stat,
       int activeCharacterTurns,
       double? multiplicativeBonus,
@@ -378,7 +344,6 @@ class __$$DebuffStatusModelImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? statusId = null,
-    Object? statusModifierType = null,
     Object? stat = null,
     Object? activeCharacterTurns = null,
     Object? multiplicativeBonus = freezed,
@@ -390,10 +355,6 @@ class __$$DebuffStatusModelImplCopyWithImpl<$Res>
           ? _value.statusId
           : statusId // ignore: cast_nullable_to_non_nullable
               as int,
-      statusModifierType: null == statusModifierType
-          ? _value.statusModifierType
-          : statusModifierType // ignore: cast_nullable_to_non_nullable
-              as StatusModifierType,
       stat: null == stat
           ? _value.stat
           : stat // ignore: cast_nullable_to_non_nullable
@@ -423,7 +384,6 @@ class __$$DebuffStatusModelImplCopyWithImpl<$Res>
 class _$DebuffStatusModelImpl extends _DebuffStatusModel {
   _$DebuffStatusModelImpl(
       {required this.statusId,
-      required this.statusModifierType,
       required this.stat,
       required this.activeCharacterTurns,
       this.multiplicativeBonus,
@@ -433,8 +393,6 @@ class _$DebuffStatusModelImpl extends _DebuffStatusModel {
 
   @override
   int statusId;
-  @override
-  StatusModifierType statusModifierType;
   @override
   Stat stat;
   @override
@@ -457,7 +415,6 @@ class _$DebuffStatusModelImpl extends _DebuffStatusModel {
 abstract class _DebuffStatusModel extends DebuffStatusModel {
   factory _DebuffStatusModel(
       {required int statusId,
-      required StatusModifierType statusModifierType,
       required Stat stat,
       required int activeCharacterTurns,
       double? multiplicativeBonus,
@@ -468,9 +425,6 @@ abstract class _DebuffStatusModel extends DebuffStatusModel {
   @override
   int get statusId;
   set statusId(int value);
-  @override
-  StatusModifierType get statusModifierType;
-  set statusModifierType(StatusModifierType value);
   @override
   Stat get stat;
   set stat(Stat value);

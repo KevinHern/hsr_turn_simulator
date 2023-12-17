@@ -13,7 +13,7 @@ abstract class CharacterModel {
   final int baseSpeed;
   final CharacterType characterType;
   Set<StatusModifierModel> statusModifiers;
-  int currentSpeed, baseActionValue, currentActionValue;
+  int currentSpeed, baseActionValue, currentActionValue, turnCounter;
   double actionGaugeForward, actionGaugeDelay;
 
   CharacterModel(
@@ -25,12 +25,16 @@ abstract class CharacterModel {
         baseActionValue = 0,
         currentActionValue = 0,
         actionGaugeForward = 0.0,
-        actionGaugeDelay = 0.0;
+        actionGaugeDelay = 0.0,
+        turnCounter = 0;
 
-  void resetActionValue() => currentActionValue = (defaultActionGaugeValue *
-          (1 - actionGaugeForward + actionGaugeDelay) /
-          currentSpeed)
-      .ceil();
+  void resetActionValue() {
+    currentActionValue = (defaultActionGaugeValue *
+            (1 - actionGaugeForward + actionGaugeDelay) /
+            currentSpeed)
+        .ceil();
+    turnCounter++;
+  }
 }
 
 @unfreezed

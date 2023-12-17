@@ -16,30 +16,45 @@ class TurnManagerUseCases {
     _turnManager.initializeOrder(characters: characters);
   }
 
-  void applySpeedStatusModifier({required CharacterModel character}) {
-    print(
-        "<APPLIED SPEED BUFF>\nReceiver: ${character.name}\nBuff Active Turns: ${1}");
-    final actionForwardBuff = BuffStatusModel(
-      statusId: 01,
-      statusModifierType: StatusModifierType.buff,
-      stat: Stat.actionGauge,
-      activeCharacterTurns: 2,
-      flatBonus: 0.10,
-    );
-    // final speedBuff = BuffStatusModel(
-    //     statusId: 01,
-    //     statusModifierType: StatusModifierType.buff,
-    //     stat: Stat.speed,
-    //     flatBonus: 100,
-    //     activeCharacterTurns: 1);
-    _statusModifier.addStatusModifiers(
-      character: character,
-      modifiers: {actionForwardBuff},
-    );
+  void applySpeedStatusModifier(
+      {required CharacterModel character, required bool applyBuff1}) {
+    if (applyBuff1) {
+      final actionForwardBuff = BuffStatusModel(
+        statusId: 01,
+        stat: Stat.speed,
+        activeCharacterTurns: 2,
+        multiplicativeBonus: 0.3,
+      );
+      // final speedBuff = BuffStatusModel(
+      //     statusId: 01,
+      //     stat: Stat.speed,
+      //     flatBonus: 100,
+      //     activeCharacterTurns: 1);
+      _statusModifier.addStatusModifiers(
+        character: character,
+        modifiers: {actionForwardBuff},
+      );
+    } else {
+      final actionForwardBuff = BuffStatusModel(
+        statusId: 02,
+        stat: Stat.speed,
+        activeCharacterTurns: 2,
+        multiplicativeBonus: 0.2,
+      );
+      // final speedBuff = BuffStatusModel(
+      //     statusId: 01,
+      //     stat: Stat.speed,
+      //     flatBonus: 100,
+      //     activeCharacterTurns: 1);
+      _statusModifier.addStatusModifiers(
+        character: character,
+        modifiers: {actionForwardBuff},
+      );
+    }
   }
 
   void runSimulation(
-      {required List<CharacterModel> characters, int turns = 10}) {
+      {required List<CharacterModel> characters, int turns = 5}) {
     // Init
     setupFirstTurnOrder(characters: characters);
 
@@ -54,8 +69,14 @@ class TurnManagerUseCases {
           "TURN #${i + 1}\n\n${_turnManager.formatTurnQueue(characters: characters)}\n\n");
 
       // Character performs action
-      if (!alreadyAppliedStatusChange && i == 0) {
-        applySpeedStatusModifier(character: characters.first);
+      if (!alreadyAppliedStatusChange && (i == 0 || i == 2)) {
+        if (i == 0) {
+          applySpeedStatusModifier(
+              character: characters.first, applyBuff1: true);
+        } else if (i == 2) {
+          applySpeedStatusModifier(
+              character: characters.last, applyBuff1: false);
+        }
       }
 
       // Return character on queue

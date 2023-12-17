@@ -80,17 +80,13 @@ class TurnManagerRepositoryImpl extends TurnManagerRepositoryContract {
 
     character.resetActionValue();
 
-    final int queueIndex = characters.indexWhere(
-        (element) => element.currentActionValue > character.currentActionValue);
+    characters.add(character);
 
-    queueIndex == -1
-        ? characters.add(character)
-        : characters.insert(queueIndex, character);
+    characters
+        .sort((a, b) => a.currentActionValue.compareTo(b.currentActionValue));
   }
 
   @override
-  String formatTurnQueue({required List<CharacterModel> characters}) => characters
-      .map((e) =>
-          "${e.name} {AV: ${e.currentActionValue}, Base Speed: ${e.baseSpeed}, Current Speed: ${e.currentSpeed}}")
-      .reduce((value, element) => "$value\n$element");
+  String formatTurnQueue({required List<CharacterModel> characters}) =>
+      "Next in line: ${characters.map((e) => "${e.name} {AV: ${e.currentActionValue}, Base Speed: ${e.baseSpeed}, Current Speed: ${e.currentSpeed}, Turn Counter: ${e.turnCounter}}").reduce((value, element) => "$value\n$element")}";
 }

@@ -12,5 +12,5 @@ void main() {
   ];
   const TurnManagerUseCases turnManager = TurnManagerUseCases();
 
-  turnManager.runSimulation(characters: characters, turns: 5);
+  turnManager.runSimulation(characters: characters, turns: 15);
 }

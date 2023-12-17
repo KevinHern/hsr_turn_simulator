@@ -64,7 +64,6 @@ class BuffStatusModel extends StatusModifierModel with _$BuffStatusModel {
 
   factory BuffStatusModel({
     required int statusId,
-    required StatusModifierType statusModifierType,
     required Stat stat,
     required int activeCharacterTurns,
     double? multiplicativeBonus,
@@ -84,7 +83,6 @@ class DebuffStatusModel extends StatusModifierModel with _$DebuffStatusModel {
 
   factory DebuffStatusModel({
     required int statusId,
-    required StatusModifierType statusModifierType,
     required Stat stat,
     required int activeCharacterTurns,
     double? multiplicativeBonus,
