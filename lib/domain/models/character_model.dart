@@ -1,6 +1,8 @@
 import 'dart:math' as math;
 
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hsr_turn_simulator/domain/models/status_modifier_model.dart';
+import 'package:hsr_turn_simulator/utils/numeric_constants.dart';
 
 import '../../utils/enums.dart';
 
@@ -9,18 +11,26 @@ part 'character_model.freezed.dart';
 abstract class CharacterModel {
   final String name;
   final int baseSpeed;
-  late int baseActionValue;
   final CharacterType characterType;
-  int currentSpeed, currentActionValue;
+  Set<StatusModifierModel> statusModifiers;
+  int currentSpeed, baseActionValue, currentActionValue;
+  double actionGaugeForward, actionGaugeDelay;
 
   CharacterModel(
       {required this.name,
       required this.characterType,
       required this.baseSpeed})
-      : currentSpeed = baseSpeed,
-        currentActionValue = 0;
+      : statusModifiers = {},
+        currentSpeed = baseSpeed,
+        baseActionValue = 0,
+        currentActionValue = 0,
+        actionGaugeForward = 0.0,
+        actionGaugeDelay = 0.0;
 
-  void resetActionValue() => currentActionValue = baseActionValue;
+  void resetActionValue() => currentActionValue = (defaultActionGaugeValue *
+          (1 - actionGaugeForward + actionGaugeDelay) /
+          currentSpeed)
+      .ceil();
 }
 
 @unfreezed
@@ -35,5 +45,6 @@ class PlayableCharacterModel extends CharacterModel
   factory PlayableCharacterModel({
     required String name,
     required int baseSpeed,
+    required Set<StatusModifierModel> statusModifiers,
   }) = _PlayableCharacterModel;
 }

@@ -20,6 +20,10 @@ mixin _$PlayableCharacterModel {
   set name(String value) => throw _privateConstructorUsedError;
   int get baseSpeed => throw _privateConstructorUsedError;
   set baseSpeed(int value) => throw _privateConstructorUsedError;
+  Set<StatusModifierModel> get statusModifiers =>
+      throw _privateConstructorUsedError;
+  set statusModifiers(Set<StatusModifierModel> value) =>
+      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $PlayableCharacterModelCopyWith<PlayableCharacterModel> get copyWith =>
@@ -32,7 +36,8 @@ abstract class $PlayableCharacterModelCopyWith<$Res> {
           $Res Function(PlayableCharacterModel) then) =
       _$PlayableCharacterModelCopyWithImpl<$Res, PlayableCharacterModel>;
   @useResult
-  $Res call({String name, int baseSpeed});
+  $Res call(
+      {String name, int baseSpeed, Set<StatusModifierModel> statusModifiers});
 }
 
 /// @nodoc
@@ -51,6 +56,7 @@ class _$PlayableCharacterModelCopyWithImpl<$Res,
   $Res call({
     Object? name = null,
     Object? baseSpeed = null,
+    Object? statusModifiers = null,
   }) {
     return _then(_value.copyWith(
       name: null == name
@@ -61,6 +67,10 @@ class _$PlayableCharacterModelCopyWithImpl<$Res,
           ? _value.baseSpeed
           : baseSpeed // ignore: cast_nullable_to_non_nullable
               as int,
+      statusModifiers: null == statusModifiers
+          ? _value.statusModifiers
+          : statusModifiers // ignore: cast_nullable_to_non_nullable
+              as Set<StatusModifierModel>,
     ) as $Val);
   }
 }
@@ -74,7 +84,8 @@ abstract class _$$PlayableCharacterModelImplCopyWith<$Res>
       __$$PlayableCharacterModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String name, int baseSpeed});
+  $Res call(
+      {String name, int baseSpeed, Set<StatusModifierModel> statusModifiers});
 }
 
 /// @nodoc
@@ -92,6 +103,7 @@ class __$$PlayableCharacterModelImplCopyWithImpl<$Res>
   $Res call({
     Object? name = null,
     Object? baseSpeed = null,
+    Object? statusModifiers = null,
   }) {
     return _then(_$PlayableCharacterModelImpl(
       name: null == name
@@ -102,6 +114,10 @@ class __$$PlayableCharacterModelImplCopyWithImpl<$Res>
           ? _value.baseSpeed
           : baseSpeed // ignore: cast_nullable_to_non_nullable
               as int,
+      statusModifiers: null == statusModifiers
+          ? _value.statusModifiers
+          : statusModifiers // ignore: cast_nullable_to_non_nullable
+              as Set<StatusModifierModel>,
     ));
   }
 }
@@ -109,17 +125,22 @@ class __$$PlayableCharacterModelImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$PlayableCharacterModelImpl extends _PlayableCharacterModel {
-  _$PlayableCharacterModelImpl({required this.name, required this.baseSpeed})
+  _$PlayableCharacterModelImpl(
+      {required this.name,
+      required this.baseSpeed,
+      required this.statusModifiers})
       : super._();
 
   @override
   String name;
   @override
   int baseSpeed;
+  @override
+  Set<StatusModifierModel> statusModifiers;
 
   @override
   String toString() {
-    return 'PlayableCharacterModel(name: $name, baseSpeed: $baseSpeed)';
+    return 'PlayableCharacterModel(name: $name, baseSpeed: $baseSpeed, statusModifiers: $statusModifiers)';
   }
 
   @JsonKey(ignore: true)
@@ -132,8 +153,10 @@ class _$PlayableCharacterModelImpl extends _PlayableCharacterModel {
 
 abstract class _PlayableCharacterModel extends PlayableCharacterModel {
   factory _PlayableCharacterModel(
-      {required String name,
-      required int baseSpeed}) = _$PlayableCharacterModelImpl;
+          {required String name,
+          required int baseSpeed,
+          required Set<StatusModifierModel> statusModifiers}) =
+      _$PlayableCharacterModelImpl;
   _PlayableCharacterModel._() : super._();
 
   @override
@@ -142,6 +165,9 @@ abstract class _PlayableCharacterModel extends PlayableCharacterModel {
   @override
   int get baseSpeed;
   set baseSpeed(int value);
+  @override
+  Set<StatusModifierModel> get statusModifiers;
+  set statusModifiers(Set<StatusModifierModel> value);
   @override
   @JsonKey(ignore: true)
   _$$PlayableCharacterModelImplCopyWith<_$PlayableCharacterModelImpl>
